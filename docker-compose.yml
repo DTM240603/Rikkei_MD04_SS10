@@ -1,4 +1,17 @@
 services:
+  postgres:
+    image: postgres:16
+    container_name: inventory-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: inventory_db
+      POSTGRES_USER: inventory
+      POSTGRES_PASSWORD: inventory_dev
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
   zookeeper:
     image: confluentinc/cp-zookeeper:7.7.0
     container_name: zookeeper
@@ -35,6 +48,7 @@ services:
       - kafka_data:/var/lib/kafka/data
 
 volumes:
+  postgres_data:
   zookeeper_data:
   zookeeper_log:
   kafka_data:

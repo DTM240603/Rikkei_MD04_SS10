@@ -1,4 +1,4 @@
-# Kafka Topic Setup Exercise
+﻿# Kafka Topic Setup Exercise
 
 This project sets up a minimal Kafka cluster with ZooKeeper and creates the required topics for the pharmacy domain.
 
